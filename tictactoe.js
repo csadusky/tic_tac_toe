@@ -13,8 +13,16 @@ player= (1 - player);
   })
 });
 
-Var Board = [[]
+var board = [[a,b,c],
+             [d,e,f],
+             [g,h,i]];
 
-                        ]
+var getWinnerX= function (board){
+  ('X'===[a] && 'X'===[b] && 'X'===[c])||
+  ('X'===[d] && 'X'===[e] && 'X'===[f])||
+  ('X'===[g] && 'X'===[h] && 'X'===[i]){
+    return  'X is the Winner'
+  }
+}
 
 
