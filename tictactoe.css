@@ -1,9 +1,12 @@
 .rows{
   background-color: blue;
   float: left;
-  height: 100px;
+  height: 105px;
   width: 320px;
   clear: both;
+  color:white;
+  text-align: center;
+  font-size: 550%
 }
 
 .rows > div{
@@ -13,7 +16,5 @@
   border: black solid 3px;
 }
 
-.square.a{
-  background-color: red;
-}
+
 

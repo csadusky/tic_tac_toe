@@ -13,16 +13,38 @@ player= (1 - player);
   })
 });
 
-var board = [[a,b,c],
-             [d,e,f],
-             [g,h,i]];
+var board = [];
+
+$('.square').each(function() {
+            board.push($(this).text());
+        });
 
 var getWinnerX= function (board){
-  ('X'===[a] && 'X'===[b] && 'X'===[c])||
-  ('X'===[d] && 'X'===[e] && 'X'===[f])||
-  ('X'===[g] && 'X'===[h] && 'X'===[i]){
-    return  'X is the Winner'
+  if (('X'=== board[0] && 'X'=== board[1] && 'X'=== board[2])||
+  ('X'=== board[3] && 'X'=== board[4] && 'X'=== board[5])||
+  ('X'=== board[6] && 'X'=== board[7] && 'X'=== board[8])){
+    return  true;
   }
-}
+};
+
+
+var getWinnerO= function (board){
+  if (('O'=== board[0] && 'O'=== board[1] && 'O'=== board[2])||
+  ('O'=== board[3] && 'O'=== board[4] && 'O'=== board[5])||
+  ('O'=== board[6] && 'O'=== board[7] && 'O'=== board[8])){
+    return  true;
+  }
+};
+
+function Winner(getWinnerX, getWinnerO){
+  if (getWinnerX === true){
+    alert ('X is the winner');
+  }else if (getWinnerO === true){
+    alert ('O is the winner');
+  }else {
+    alert ('No winner, play again');
+  }
+};
+
 
 
