@@ -1,3 +1,6 @@
+body{
+  background-color: green;
+}
 .rows{
   background-color: blue;
   float: left;
@@ -7,6 +10,7 @@
   color:white;
   text-align: center;
   font-size: 550%
+
 }
 
 .rows > div{
@@ -16,5 +20,17 @@
   border: black solid 3px;
 }
 
+#scoreBoard > div{
+  float:left;
+  height: 80px;
+  width: 80px;
+  border: black solid 3px;
+}
+
+#scores{
+  float: clear;
+  height: 40%;
+  width: 100%;
+}
 
 

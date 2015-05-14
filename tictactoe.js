@@ -5,7 +5,10 @@ $(document).ready(function(){
   var board = ['','','','','','','','',''];
   var turns = 0;
   var gameisOver = false;
-
+  var xScore = 0;
+  var oScore = 0;
+  $('#x-score').text(xScore);
+  $('#o-score').text(oScore);
 
 
     //2.  $('.square') is selecting all the dom elements with the class square. Then its applying a click handler to each of those elements
@@ -33,7 +36,7 @@ $(document).ready(function(){
       gameisOver = Winner(xIsWinner, oIsWinner);
 
 
-      //switch player from X to O
+      //11. switch player from X to O
       player= (1 - player);
 
     } // end of if
@@ -78,24 +81,26 @@ $(document).ready(function(){
     };
     return result;
   };
-    //9.  function that passes through true and false from getWinner functions above and will evaluate Winner to either true or false and alert accordingly.
+    //9.  function that passes through true and false from getWinner functions above and will evaluate Winner to either true or false and alert accordingly. Score Board will also be updated.
   function Winner(XWins, OWins){
     var result = false
     if (XWins){
       alert ('X is the winner');
       result = true;
+      xScore ++;
+      $('#x-score').text(xScore);
     }else if (OWins){
       alert ('O is the winner');
       result = true;
+      oScore ++;
+      $('#o-score').text(oScore);
     }else if (turns === 9){
       alert ('No winner, play again');
       result = true;
     };
     return result;
   };
-//};
-//clickSquare();
-
+//12.  function will clear board array of all Xs and Os, and will clear text from square class.  Turns count will go back to zero, and gameisOver will go back to false.
 function resetBoard(){
   board = ['','','','','','','','',''];
   $('.square').each(function() {
@@ -103,9 +108,8 @@ function resetBoard(){
   });
   turns = 0;
   gameisOver = false;
-  //clickSquare();
 };
-
+//13. When button is clicked resetBoard function will be called
 $('#restart').click(resetBoard);
 
 });

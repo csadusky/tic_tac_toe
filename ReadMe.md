@@ -18,14 +18,9 @@ when a user gets three in a row, game will display a winner alert
 
 
 
-
-
 feature game logic
 
 
-user story 5
-
-user will  be able to see who has won
 
 user story 1
 play should alternate between x and o
@@ -34,11 +29,8 @@ play should alternate between x and o
 user story 2
 user should be able to win if 3 in a row
 
-user story 3
-if user gets a tie they will play again
 
 user story 4
-
 when a user has a win it will get logged
 
 user story 5
