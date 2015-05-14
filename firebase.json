@@ -1,0 +1,9 @@
+{
+  "firebase": "csadusky-tictactoe",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
