@@ -1,49 +1,47 @@
+//1.  When document is ready run function
 $(document).ready(function(){
   var player = 0;
   var players = ['X','O'];
-  var board = [];
+  var board = ['','','','','','','','',''];
   var turns = 0;
   var gameisOver = false;
 
 
 
-    //1.  $('.square') is selecting all the dom elements with the class square. Then its applying a click handler to each of those elements */
+    //2.  $('.square') is selecting all the dom elements with the class square. Then its applying a click handler to each of those elements
 
   $('.square').click(function() {
 
-    //2.  if the square that you click text is empty and the game is not over
+    //3.  If the square that you click text is empty and the game is not over..
     if ($(this).text() === "" && (gameisOver !==true)){
-      //3.  increments the turns
+      //4.  increments the turns
       turns ++;
-      //4.  putting X or O into square
+      //5.  Put X or O into square
       $(this).text(players[player]);
-      //TO DO
-      board =[];
-      //get all the dom elements that have the class square, go through each one and push its text onto the board.
-      $('.square').each(function() {
-        board.push($(this).text());
-      });
-      //TO DO if either var getWinnerX or var getWinnerO is true when we pass them through the winner function, then Winner will be true. gameisOver will also be true, and then we cant go to next player
+      //6.  Creating variable id which equals the attribute that was assigned to the specific square that is clicked on
+      var id = $(this).attr('id');
+      //7.  Putting that id into the board array and making it either X or O
+      board[id] = players[player];
+
+      //9.  getWinnerX() and getWinnerO() will return as either true or false which will assign var xIsWinner and var oIsWinner to be either true or false.  Then true and/or false is passed to the winner function.
+      //  It can also be this way below
+      //  gameisOver = Winner(getWinnerX(),getWinnerO());
+
       var xIsWinner = getWinnerX();
       var oIsWinner = getWinnerO();
+      //10.  gameisOver will be assigned either true or false
       gameisOver = Winner(xIsWinner, oIsWinner);
-      //gameIsOver = Winner(true, false);
-      //gameIsOver = Winner(false, true);
-      //gameIsOver = Winner(false, false);
 
 
-
-      //gameisOver = Winner(getWinnerX(),getWinnerO());
-      console.log(gameisOver);
       //switch player from X to O
       player= (1 - player);
 
     } // end of if
 
-  });  // end of click function
+  }); // end of click function
 
 
-    //function that goes through each winning combination of X and if any of them match the board then true is returned and stores it in variable getWinnerX
+    //8.  Function that goes through each winning combination of X and if any of them match the board then true is returned and stores it in variable getWinnerX
   var getWinnerX= function (){
     var result = false;
 
@@ -62,7 +60,7 @@ $(document).ready(function(){
     return result;
   };
 
-    //function that goes through each winning combination of O and if any of them match the board then true is returned and stores it in variable getWinnerO
+    //8.  Function that goes through each winning combination of O and if any of them match the board then true is returned and stores it in variable getWinnerO
   var getWinnerO= function (){
     var result = false;
 
@@ -80,7 +78,7 @@ $(document).ready(function(){
     };
     return result;
   };
-    //function that goes through vars getWinnerX and getWinnerO and if they are true then an alert pops up and Winner function returns true
+    //9.  function that passes through true and false from getWinner functions above and will evaluate Winner to either true or false and alert accordingly.
   function Winner(XWins, OWins){
     var result = false
     if (XWins){
@@ -95,18 +93,20 @@ $(document).ready(function(){
     };
     return result;
   };
+//};
+//clickSquare();
 
-/*function resetBoard(board){
-board = [['','',''],
-        ['','',''],
-        ['','','']];
-$('.square').each(function() {
-        board.push.text(""));
-  }
-  var turns = 0;
-}
+function resetBoard(){
+  board = ['','','','','','','','',''];
+  $('.square').each(function() {
+    $(this).text('');
+  });
+  turns = 0;
+  gameisOver = false;
+  //clickSquare();
+};
 
-$('#restart').click(resetBoard);*/
+$('#restart').click(resetBoard);
 
 });
 
