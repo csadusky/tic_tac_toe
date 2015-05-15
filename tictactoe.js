@@ -85,17 +85,17 @@ $(document).ready(function(){
   function Winner(XWins, OWins){
     var result = false
     if (XWins){
-      alert ('X is the winner');
+      $('#x-winner').text('X is the winner!');
       result = true;
       xScore ++;
       $('#x-score').text(xScore);
     }else if (OWins){
-      alert ('O is the winner');
+      $('#o-winner').text('O is the winner!');
       result = true;
       oScore ++;
       $('#o-score').text(oScore);
     }else if (turns === 9){
-      alert ('No winner, play again');
+      $('#no-winner').text('No winner... Restart!');
       result = true;
     };
     return result;
@@ -108,6 +108,10 @@ function resetBoard(){
   });
   turns = 0;
   gameisOver = false;
+  $('#x-winner').text('');
+  $('#o-winner').text('');
+  $('#no-winner').text('');
+
 };
 //13. When button is clicked resetBoard function will be called
 $('#restart').click(resetBoard);
